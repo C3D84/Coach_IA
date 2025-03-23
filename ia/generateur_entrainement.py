@@ -68,7 +68,7 @@ Commence directement par l’échauffement.
 """
 
     try:
-        hf_url = "https://api-inference.huggingface.co/models/google/flan-t5-base"
+        hf_url = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1"
         headers = {
             "Authorization": f"Bearer {HF_TOKEN}",
             "Accept": "application/json"
