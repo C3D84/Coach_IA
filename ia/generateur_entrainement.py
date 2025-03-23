@@ -4,6 +4,12 @@ import requests
 import json
 import random
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
+import os
+HF_TOKEN = os.getenv("HF_TOKEN")
+
 
 def charger_exercices(objectif, inclure_gardiens=False):
     chemin = os.path.join("ressources", "exercices.json")
@@ -62,9 +68,14 @@ Commence directement par l’échauffement.
 
     try:
         hf_url = "https://api-inference.huggingface.co/models/google/flan-t5-base"
+        headers = {
+            "Authorization": f"Bearer {HF_TOKEN}",
+            "Accept": "application/json"
+        }
+
         response = requests.post(
             hf_url,
-            headers={"Accept": "application/json"},
+            headers=headers,
             json={"inputs": prompt},
             timeout=60
         )
@@ -78,6 +89,7 @@ Commence directement par l’échauffement.
 
     except Exception as e:
         return f"❌ Erreur lors de l’appel HuggingFace : {str(e)}"
+
 
 
 

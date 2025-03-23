@@ -4,3 +4,4 @@ fpdf
 xlsxwriter
 python-dotenv
 requests
+python-dotenv
