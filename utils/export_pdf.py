@@ -22,6 +22,7 @@ def exporter_programme_pdf(programme: str, titre: str = "entrainement") -> bytes
 
     for ligne in programme.split("\n"):
         ligne_clean = ligne.strip()
+        ligne_clean = ligne_clean.encode("latin-1", "replace").decode("latin-1")
         if not ligne_clean:
             continue
 
