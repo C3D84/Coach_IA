@@ -32,52 +32,54 @@ def generer_programme_ia(categorie, objectif, duree, nb_joueurs, frequence, gard
     progression_txt = f"\nSéance axée sur : {progression}" if progression else ""
 
     prompt = f"""
-Tu es un éducateur de football diplômé FFF. Tu rédiges des plans d'entraînement détaillés pour des équipes {categorie}.
+    Tu es un entraîneur diplômé UEFA B, responsable de la planification des entraînements pour une équipe de football {categorie}. 
+    Ton rôle est de proposer des séances structurées, précises et adaptées aux objectifs suivants :
 
-Ton objectif est de proposer une séance complète, cohérente, et directement utilisable sur le terrain.
+    - Objectif principal : {objectif}
+    - Nombre de joueurs disponibles : {nb_joueurs}
+    - Durée de la séance : {duree} minutes
+    - Nombre de séances hebdomadaires : {frequence}
+    - Programme spécifique gardiens : {"Oui" if gardiens else "Non"}
 
-Chaque séance doit inclure :
-1. Échauffement (avec durée, objectif, description)
-2. Corps de séance (2 à 3 ateliers nommés avec :
-   - Titre
-   - Durée
-   - Objectif
-   - Description précise
-   - Variante possible
-)
-3. Partie spécifique gardiens (si activée)
-4. Retour au calme / étirements
-5. Conseils du coach
+    Ta séance doit comporter :
+    1. **Échauffement actif** : avec un objectif précis, durée, consignes claires
+    2. **Corps de séance** : 2 à 3 ateliers avec :
+       - 🎯 Nom de l’atelier
+       - ⏱️ Durée
+       - 🎯 Objectif pédagogique
+       - 📋 Description précise, consignes, variantes
+    3. **Travail spécifique gardien** (si activé) : avec description, matériel, intégration
+    4. **Retour au calme** : étirements, récupération
+    5. **Conseils du coach** : attitude, communication, progression
 
-Paramètres à prendre en compte :
-- Niveau de l'équipe : {categorie}
-- Objectif principal : {objectif}
-- Durée : {duree} minutes
-- Nombre de joueurs : {nb_joueurs}
-- Séances par semaine : {frequence}
-- Programme spécifique gardiens : {"Oui" if gardiens else "Non"}
-{progression_txt}
+    Utilise un **vocabulaire clair**, sans jargon, **en français uniquement**.  
+    Formate la réponse comme une **fiche séance prête à imprimer**.  
+    Structure bien les blocs avec titres et sauts de ligne.  
+    N’utilise **aucun anglicisme**.
 
-Voici quelques exemples d'exercices à utiliser ou adapter :
-{exemples_exos}
+    Commence directement par l’échauffement.
+    """
 
-Règles :
-- Reste entièrement en français
-- Évite les anglicismes ou termes techniques en anglais
-- Utilise un vocabulaire clair, pédagogique, professionnel
-- Ne répète pas les titres comme "Voici le programme" : va droit au but
 
-Commence directement par l’échauffement.
-"""
-
-    try:
+try:
+        hf_url = "https://api-inference.huggingface.co/models/google/flan-t5-base"
         response = requests.post(
-            "http://localhost:11434/api/generate",
-            json={"model": "mistral", "prompt": prompt, "stream": False}
+            hf_url,
+            headers={"Accept": "application/json"},
+            json={"inputs": prompt},
+            timeout=60
         )
-        return response.json()["response"].strip()
+
+        if response.status_code == 200:
+            resultat = response.json()
+            texte_genere = resultat[0]["generated_text"]
+            return texte_genere
+        else:
+            return f"❌ Erreur HuggingFace [{response.status_code}] : {response.text}"
+
     except Exception as e:
-        return f"❌ Erreur avec le moteur IA local : {e}"
+        return f"❌ Erreur lors de l’appel HuggingFace : {str(e)}"
+
 
 def generer_planification_seances(categorie, objectif, duree, nb_joueurs, frequence, gardiens, nb_seances=3):
     seances = []
