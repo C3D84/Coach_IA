@@ -1,84 +1,238 @@
 {
   "exercices": [
     {
-      "nom": "Conduite en slalom",
-      "duree": "10 min",
-      "description": "Dribble entre des plots en gardant le contrôle du ballon.",
+      "nom": "Conduite en zigzag",
+      "duree": "8 min",
+      "description": "Dribble rapide entre des plots espacés de 2m.",
       "materiel": "10 plots",
       "note": 4,
-      "niveau": "U11"
+      "niveau": "U9",
+      "theme": "Technique"
+    },
+    {
+      "nom": "Contrôle orienté et passe",
+      "duree": "10 min",
+      "description": "Contrôle orienté puis passe vers un coéquipier en mouvement.",
+      "materiel": "Ballons, plots",
+      "note": 5,
+      "niveau": "U11",
+      "theme": "Technique"
+    },
+    {
+      "nom": "Frappe de précision",
+      "duree": "12 min",
+      "description": "Frappes dans des zones ciblées au sol et en hauteur.",
+      "materiel": "Cibles, ballons",
+      "note": 4,
+      "niveau": "U13",
+      "theme": "Technique"
+    },
+    {
+      "nom": "Contrôle-passe à 2 touches",
+      "duree": "10 min",
+      "description": "En binôme, contrôle puis passe rapide à deux touches maximum.",
+      "materiel": "Ballons",
+      "note": 4,
+      "niveau": "U11",
+      "theme": "Technique"
     },
     {
       "nom": "Jeu en triangle",
       "duree": "15 min",
-      "description": "Passe et déplacement entre 3 joueurs en triangle.",
-      "materiel": "3 coupelles",
+      "description": "Passe et déplacement dans un triangle avec variation d'appuis.",
+      "materiel": "Coupelles",
       "note": 5,
-      "niveau": "U13"
+      "niveau": "U13",
+      "theme": "Technique"
     },
     {
       "nom": "Frappe en course",
       "duree": "10 min",
-      "description": "Course de 10 mètres puis frappe au but.",
+      "description": "Course de 10 mètres puis frappe rapide au but.",
       "materiel": "Ballons, mini-but",
       "note": 3,
-      "niveau": "U13"
+      "niveau": "U13",
+      "theme": "Technique"
+    },
+    {
+      "nom": "Dribble + finition",
+      "duree": "10 min",
+      "description": "Dribbles face à des plots puis finition dans le but.",
+      "materiel": "Plots, ballons, buts",
+      "note": 4,
+      "niveau": "U15",
+      "theme": "Technique"
     },
     {
       "nom": "Jeu de possession",
       "duree": "20 min",
-      "description": "Conserver la balle dans un espace réduit avec des passes rapides.",
+      "description": "Conserver la balle dans un espace réduit.",
       "materiel": "Délimiteurs, ballons",
       "note": 4,
-      "niveau": "U15"
+      "niveau": "U15",
+      "theme": "Tactique"
     },
     {
       "nom": "Rondo 5 vs 2",
       "duree": "12 min",
-      "description": "Travail de conservation avec pressing en infériorité numérique.",
-      "materiel": "10 coupelles, ballons",
+      "description": "Travail de conservation avec pressing à 2 joueurs.",
+      "materiel": "Plots, ballons",
       "note": 5,
-      "niveau": "U17"
+      "niveau": "U17",
+      "theme": "Tactique"
     },
     {
-      "nom": "Exercice de finition",
+      "nom": "Transitions offensives",
       "duree": "15 min",
-      "description": "Enchaînement de passes et frappes au but sous pression.",
-      "materiel": "Ballons, buts, plots",
+      "description": "Exercice de récupération et contre-attaque rapide.",
+      "materiel": "Ballons",
       "note": 4,
-      "niveau": "U13"
+      "niveau": "U17",
+      "theme": "Tactique"
     },
     {
-      "nom": "Circuit physique intensif",
+      "nom": "Pressing en zone",
+      "duree": "10 min",
+      "description": "Organisation du pressing dans une zone délimitée.",
+      "materiel": "Plots, chasubles",
+      "note": 4,
+      "niveau": "U15",
+      "theme": "Tactique"
+    },
+    {
+      "nom": "Jeu positionnel 6c6+3",
       "duree": "20 min",
-      "description": "Enchaînement de courses, sauts et accélérations sur circuit défini.",
-      "materiel": "Plots, échelle, lattes",
-      "note": 4,
-      "niveau": "U15"
+      "description": "Jeu à thème sur la conservation et les changements d’aile.",
+      "materiel": "Ballons, chasubles",
+      "note": 5,
+      "niveau": "U17",
+      "theme": "Tactique"
     },
     {
-      "nom": "Transitions rapides",
+      "nom": "Circulation de balle rapide",
+      "duree": "15 min",
+      "description": "Séquences courtes de passes en une touche pour créer des brèches.",
+      "materiel": "Plots, ballons",
+      "note": 5,
+      "niveau": "U15",
+      "theme": "Tactique"
+    },
+    {
+      "nom": "Jeu de fixation et renversement",
       "duree": "12 min",
-      "description": "Jeu de 3 vs 2 avec bascule rapide attaque/défense.",
-      "materiel": "Ballons, plots",
+      "description": "Attirer l’adversaire d’un côté et renverser rapidement.",
+      "materiel": "Ballons",
       "note": 5,
-      "niveau": "U17"
+      "niveau": "U17",
+      "theme": "Tactique"
     },
     {
-      "nom": "Relance du gardien",
+      "nom": "Relais vitesse",
       "duree": "10 min",
-      "description": "Travail spécifique sur les relances au pied et à la main.",
-      "materiel": "Ballons, mini-buts",
+      "description": "Course rapide en relais avec ballon.",
+      "materiel": "Plots, ballons",
       "note": 4,
-      "niveau": "U13"
+      "niveau": "U11",
+      "theme": "Physique"
     },
     {
-      "nom": "Plongeons latéraux",
+      "nom": "Circuit de coordination",
       "duree": "10 min",
-      "description": "Travail de réflexe et de placement sur des frappes courtes pour gardien.",
-      "materiel": "Ballons, tapis, repères",
+      "description": "Lattes, plots, haies pour développer la coordination motrice.",
+      "materiel": "Échelle de rythme, lattes, plots",
       "note": 5,
-      "niveau": "U15"
+      "niveau": "U11",
+      "theme": "Physique"
+    },
+    {
+      "nom": "Jeu d'endurance active",
+      "duree": "15 min",
+      "description": "Conserver un effort soutenu avec ballon pendant une période définie.",
+      "materiel": "Ballons, coupelles",
+      "note": 4,
+      "niveau": "U13",
+      "theme": "Physique"
+    },
+    {
+      "nom": "Côte explosivité",
+      "duree": "10 min",
+      "description": "Course en montée avec freinage et départ rapide.",
+      "materiel": "Terrain en pente, plots",
+      "note": 4,
+      "niveau": "U13",
+      "theme": "Physique"
+    },
+    {
+      "nom": "Gainage collectif",
+      "duree": "8 min",
+      "description": "Série d’exercices de gainage avec partenaires.",
+      "materiel": "Tapis (optionnel)",
+      "note": 4,
+      "niveau": "U15",
+      "theme": "Physique"
+    },
+    {
+      "nom": "Sprint + récupération active",
+      "duree": "10 min",
+      "description": "Sprints sur 20m suivis de marche ou conduite lente.",
+      "materiel": "Plots",
+      "note": 4,
+      "niveau": "U17",
+      "theme": "Physique"
+    },
+    {
+      "nom": "Travail aérobie en binôme",
+      "duree": "15 min",
+      "description": "Courses en binôme avec variation d’intensité.",
+      "materiel": "Plots, chronos",
+      "note": 3,
+      "niveau": "U15",
+      "theme": "Physique"
+    },
+    {
+      "nom": "Reflexes gardien ballon couché",
+      "duree": "10 min",
+      "description": "Enchaînement de plongeons bas pour bloquer les frappes couchées.",
+      "materiel": "Ballons",
+      "note": 5,
+      "niveau": "U13",
+      "theme": "Gardiens"
+    },
+    {
+      "nom": "Relance à la main",
+      "duree": "10 min",
+      "description": "Prise de balle au sol et relance rapide à la main.",
+      "materiel": "Ballons",
+      "note": 4,
+      "niveau": "U11",
+      "theme": "Gardiens"
+    },
+    {
+      "nom": "Plongeon latéral avec tapis",
+      "duree": "8 min",
+      "description": "Plongeon d’un côté à l’autre avec retour rapide au centre.",
+      "materiel": "Tapis, plots, ballons",
+      "note": 5,
+      "niveau": "U15",
+      "theme": "Gardiens"
+    },
+    {
+      "nom": "Exercice duel face à un tireur",
+      "duree": "10 min",
+      "description": "Réduire l’angle et sortir au bon moment en 1v1.",
+      "materiel": "Ballons",
+      "note": 5,
+      "niveau": "U17",
+      "theme": "Gardiens"
+    },
+    {
+      "nom": "Travail de prise aérienne",
+      "duree": "10 min",
+      "description": "Sortie sur centre avec saut et blocage du ballon.",
+      "materiel": "Ballons, chasubles",
+      "note": 4,
+      "niveau": "U13",
+      "theme": "Gardiens"
     }
   ]
 }
