@@ -9,6 +9,9 @@ load_dotenv()
 
 import os
 HF_TOKEN = os.getenv("HF_TOKEN")
+import streamlit as st
+st.sidebar.write("DEBUG Token cloud : ", HF_TOKEN[:10] if HF_TOKEN else "Aucun token chargé")
+
 
 
 def charger_exercices(objectif, inclure_gardiens=False):
