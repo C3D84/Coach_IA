@@ -216,14 +216,7 @@ elif choix == "⭐ Mes exercices":
         st.toast("💾 Modifications sauvegardées.")
 
 
-    for cat, idx in reversed(exercice_a_supprimer):
-        del base_exos[cat][idx]
-        modif_effectuee = True
 
-    if modif_effectuee:
-        with open(chemin_exos, "w", encoding="utf-8") as f:
-            json.dump(base_exos, f, indent=4, ensure_ascii=False)
-        st.toast("💾 Modifications sauvegardées avec succès.")
 
     # EXPORT EXCEL
     if st.button("📥 Exporter toute la base au format Excel (.xlsx)"):
