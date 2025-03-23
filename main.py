@@ -123,38 +123,38 @@ elif choix == "📋 Entraînement manuel":
 
 # === AJOUT D’EXERCICE ===
 elif choix == "➕ Ajouter un exercice":
-    st.title("➕ Ajouter un exercice à la base")
-    with st.form("form_ajout_exercice"):
-        col1, col2 = st.columns(2)
-        with col1:
-            nom_exo = st.text_input("Nom de l'exercice")
-            duree = st.text_input("Durée (ex : 10 minutes)")
-            note = st.slider("Note (1 à 5 ⭐)", 1, 5, 3)
-            niveau = st.selectbox("Niveau conseillé", ["U9", "U11", "U13", "U15", "U17"])
-        with col2:
-            materiel = st.text_input("Matériel")
-            categorie_exo = st.selectbox("Catégorie", ["Technique", "Physique", "Tactique", "Gardiens"])
-        description = st.text_area("Description détaillée")
+    st.title("➕ Ajouter un nouvel exercice")
+
+    chemin_exos = os.path.join("ressources", "exercices.json")
+    if os.path.exists(chemin_exos):
+        with open(chemin_exos, "r", encoding="utf-8") as f:
+            base_exos = json.load(f)
+    else:
+        base_exos = {"exercices": []}
+
+    with st.form("form_ajout"):
+        nom = st.text_input("Nom de l'exercice")
+        duree = st.text_input("Durée (ex: 10 min)")
+        description = st.text_area("Description")
+        materiel = st.text_input("Matériel")
+        niveau = st.selectbox("Niveau", ["U9", "U11", "U13", "U15", "U17"])
+        note = st.slider("Note", 1, 5, 3)
         submitted = st.form_submit_button("✅ Ajouter")
-    if submitted:
-        new_exo = {
-            "nom": nom_exo,
-            "description": description,
-            "materiel": materiel,
-            "duree": duree,
-            "note": note,
-            "niveau": niveau
-        }
-        chemin = os.path.join("ressources", "exercices.json")
-        if os.path.exists(chemin):
-            with open(chemin, "r", encoding="utf-8") as f:
-                data = json.load(f)
-        else:
-            data = {"Technique": [], "Physique": [], "Tactique": [], "Gardiens": []}
-        data[categorie_exo].append(new_exo)
-        with open(chemin, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
-        st.success(f"✅ « {nom_exo} » ajouté avec succès à la catégorie {categorie_exo}.")
+
+        if submitted:
+            exo = {
+                "nom": nom,
+                "duree": duree,
+                "description": description,
+                "materiel": materiel,
+                "niveau": niveau,
+                "note": note
+            }
+            base_exos["exercices"].append(exo)
+            with open(chemin_exos, "w", encoding="utf-8") as f:
+                json.dump(base_exos, f, indent=4, ensure_ascii=False)
+            st.success(f"✅ Exercice '{nom}' ajouté avec succès.")
+
 
 # === PAGE PROFIL COACH ===
 elif choix == "👤 Mon profil":
@@ -186,73 +186,35 @@ elif choix == "⭐ Mes exercices":
         with open(chemin_exos, "r", encoding="utf-8") as f:
             base_exos = json.load(f)
     else:
-        st.warning("Aucune base d'exercices trouvée.")
-        base_exos = {}
+        st.warning("Aucun fichier d'exercices trouvé.")
+        base_exos = {"exercices": []}
 
-    recherche = st.text_input("🔍 Rechercher un mot-clé (nom, description...)")
-    categorie_filtre = st.selectbox("📂 Filtrer par catégorie :", ["Toutes"] + list(base_exos.keys()))
+    recherche = st.text_input("🔍 Rechercher un mot-clé")
     niveau_filtre = st.selectbox("🎓 Filtrer par niveau :", ["Tous", "U9", "U11", "U13", "U15", "U17"])
 
-    modif_effectuee = False
-    exercice_a_supprimer = []
+    exercices = base_exos.get("exercices", [])
+    modif = False
 
-    for cat, exercices in base_exos.items():
-        if categorie_filtre != "Toutes" and cat != categorie_filtre:
+    for i, exo in enumerate(exercices):
+        nom = exo.get("nom", "")
+        if recherche and recherche.lower() not in nom.lower():
+            continue
+        if niveau_filtre != "Tous" and exo.get("niveau") != niveau_filtre:
             continue
 
-        st.subheader(f"📁 Catégorie : {cat}")
+        with st.expander(f"{nom} ({exo.get('duree')}) – Niveau {exo.get('niveau')} ⭐{exo.get('note', 3)}"):
+            st.markdown(f"📝 {exo.get('description')}")
+            st.markdown(f"📦 Matériel : {exo.get('materiel', 'N/A')}")
+            nouvelle_note = st.slider("⭐ Note", 1, 5, exo.get("note", 3), key=f"note_{i}")
+            if nouvelle_note != exo.get("note", 3):
+                base_exos["exercices"][i]["note"] = nouvelle_note
+                modif = True
 
-        for i, exo in enumerate(exercices):
-            # Initialisation des valeurs par défaut
-            nom = exo.get("nom", "")
-            description = exo.get("description", "")
-            duree = exo.get("duree", "N/A")
-            materiel = exo.get("materiel", "")
-            note = exo.get("note", 3)
-            niveau = exo.get("niveau", "U11")
+    if modif:
+        with open(chemin_exos, "w", encoding="utf-8") as f:
+            json.dump(base_exos, f, indent=4, ensure_ascii=False)
+        st.toast("💾 Modifications sauvegardées.")
 
-            # Filtrage recherche et niveau
-            if recherche and recherche.lower() not in f"{nom} {description}".lower():
-                continue
-            if niveau_filtre != "Tous" and niveau != niveau_filtre:
-                continue
-
-            with st.expander(f"⭐ {note}/5 - {nom} ({duree}) - 🎓 {niveau}"):
-                st.markdown(f"🎯 {description}")
-                st.markdown(f"🧰 Matériel : {materiel}")
-
-                nouvelle_note = st.slider("⭐ Note", 1, 5, note, key=f"note_{nom}_{cat}_{i}")
-                if nouvelle_note != note:
-                    exo["note"] = nouvelle_note
-                    modif_effectuee = True
-
-                col1, col2 = st.columns(2)
-                with col1:
-                    if st.button("✏️ Modifier", key=f"edit_{nom}_{cat}_{i}"):
-                        with st.form(f"form_edit_{nom}_{cat}_{i}"):
-                            new_nom = st.text_input("Nom", value=nom)
-                            new_duree = st.text_input("Durée", value=duree)
-                            new_description = st.text_area("Description", value=description)
-                            new_materiel = st.text_input("Matériel", value=materiel)
-                            new_note = st.slider("Note", 1, 5, value=note)
-                            new_niveau = st.selectbox("Niveau", ["U9", "U11", "U13", "U15", "U17"], index=["U9", "U11", "U13", "U15", "U17"].index(niveau))
-                            submitted = st.form_submit_button("✅ Enregistrer les modifications")
-                        if submitted:
-                            exo.update({
-                                "nom": new_nom,
-                                "duree": new_duree,
-                                "description": new_description,
-                                "materiel": new_materiel,
-                                "note": new_note,
-                                "niveau": new_niveau
-                            })
-                            modif_effectuee = True
-                            st.success("✅ Exercice modifié avec succès !")
-
-                with col2:
-                    if st.button("🗑️ Supprimer", key=f"delete_{nom}_{cat}_{i}"):
-                        exercice_a_supprimer.append((cat, i))
-                        st.warning(f"Exercice « {nom} » marqué pour suppression.")
 
     for cat, idx in reversed(exercice_a_supprimer):
         del base_exos[cat][idx]

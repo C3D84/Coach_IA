@@ -9,8 +9,6 @@ load_dotenv()
 
 import os
 HF_TOKEN = os.getenv("HF_TOKEN")
-import streamlit as st
-st.sidebar.write("DEBUG Token cloud : ", HF_TOKEN[:10] if HF_TOKEN else "Aucun token chargé")
 
 
 
@@ -22,12 +20,11 @@ def charger_exercices(objectif, inclure_gardiens=False):
     with open(chemin, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    exercices = data.get(objectif, [])
-    exercices_choisis = random.sample(exercices, min(2, len(exercices)))
+    tous_exos = data.get("exercices", [])
+    exercices_choisis = []
 
-    if inclure_gardiens and "Gardiens" in data:
-        gardien_exos = random.sample(data["Gardiens"], min(1, len(data["Gardiens"])))
-        exercices_choisis += gardien_exos
+    if tous_exos:
+        exercices_choisis = random.sample(tous_exos, min(3, len(tous_exos)))
 
     texte_exos = "\n".join(
         f"- {exo['nom']} ({exo['duree']}): {exo['description']} [Matériel: {exo['materiel']}]"
@@ -35,6 +32,7 @@ def charger_exercices(objectif, inclure_gardiens=False):
     )
 
     return texte_exos, exercices_choisis
+
 
 def generer_programme_ia(categorie, objectif, duree, nb_joueurs, frequence, gardiens, progression=None):
     exemples_exos, _ = charger_exercices(objectif, inclure_gardiens=gardiens)
