@@ -1,206 +1,84 @@
 {
-    "Technique": [
-        {
-            "nom": "Passe et suit",
-            "description": "Travail de passe en ligne : chaque joueur suit sa passe.",
-            "materiel": "Plots, ballons",
-            "duree": "10 min",
-            "note": 4
-        },
-        {
-            "nom": "Conduite slalom",
-            "description": "Slalom entre plots avec changements de rythme.",
-            "materiel": "Plots",
-            "duree": "8 min",
-            "note": 5
-        },
-        {
-            "nom": "Contrôle-passe en triangle",
-            "description": "Exercice de passe à 3 avec contrôle orienté.",
-            "materiel": "Plots, ballons",
-            "duree": "12 min",
-            "note": 4
-        },
-        {
-            "nom": "Rond central",
-            "description": "Jeu de conservation en cercle, une touche.",
-            "materiel": "Plots, ballons",
-            "duree": "15 min",
-            "note": 5
-        },
-        {
-            "nom": "Passe et suit (variante 5)",
-            "description": "Travail de passe en ligne : chaque joueur suit sa passe.",
-            "materiel": "Plots, ballons",
-            "duree": "10 min",
-            "note": 5
-        },
-        {
-            "nom": "Conduite slalom (variante 6)",
-            "description": "Slalom entre plots avec changements de rythme.",
-            "materiel": "Plots",
-            "duree": "8 min",
-            "note": 3
-        },
-        {
-            "nom": "Contrôle-passe en triangle (variante 7)",
-            "description": "Exercice de passe à 3 avec contrôle orienté.",
-            "materiel": "Plots, ballons",
-            "duree": "12 min",
-            "note": 4
-        },
-        {
-            "nom": "Rond central (variante 8)",
-            "description": "Jeu de conservation en cercle, une touche.",
-            "materiel": "Plots, ballons",
-            "duree": "15 min",
-            "note": 4
-        },
-        {
-            "nom": "Passe et suit (variante 9)",
-            "description": "Travail de passe en ligne : chaque joueur suit sa passe.",
-            "materiel": "Plots, ballons",
-            "duree": "10 min",
-            "note": 3
-        },
-        {
-            "nom": "Conduite slalom (variante 10)",
-            "description": "Slalom entre plots avec changements de rythme.",
-            "materiel": "Plots",
-            "duree": "8 min",
-            "note": 2
-        }
-    ],
-    "Physique": [
-        {
-            "nom": "Relais explosifs",
-            "description": "Course avec obstacles et sprint terminal.",
-            "materiel": "Plots, cerceaux",
-            "duree": "10 min",
-            "note": 3
-        },
-        {
-            "nom": "Pyramide de vitesse",
-            "description": "Séries de sprints croissants puis décroissants.",
-            "materiel": "Plots",
-            "duree": "12 min",
-            "note": 4
-        },
-        {
-            "nom": "Atelier vivacité",
-            "description": "Réaction à un signal puis changement de direction.",
-            "materiel": "Plots, sifflet",
-            "duree": "8 min",
-            "note": 3
-        },
-        {
-            "nom": "Fractionné ballon",
-            "description": "Fractionné 30-30 avec ballon en conduite.",
-            "materiel": "Ballons",
-            "duree": "15 min",
-            "note": 4
-        },
-        {
-            "nom": "Relais explosifs (variante 5)",
-            "description": "Course avec obstacles et sprint terminal.",
-            "materiel": "Plots, cerceaux",
-            "duree": "10 min",
-            "note": 4
-        },
-        {
-            "nom": "Pyramide de vitesse (variante 6)",
-            "description": "Séries de sprints croissants puis décroissants.",
-            "materiel": "Plots",
-            "duree": "12 min",
-            "note": 2
-        },
-        {
-            "nom": "Atelier vivacité (variante 7)",
-            "description": "Réaction à un signal puis changement de direction.",
-            "materiel": "Plots, sifflet",
-            "duree": "8 min",
-            "note": 4
-        },
-        {
-            "nom": "Fractionné ballon (variante 8)",
-            "description": "Fractionné 30-30 avec ballon en conduite.",
-            "materiel": "Ballons",
-            "duree": "15 min",
-            "note": 3
-        },
-        {
-            "nom": "Relais explosifs (variante 9)",
-            "description": "Course avec obstacles et sprint terminal.",
-            "materiel": "Plots, cerceaux",
-            "duree": "10 min",
-            "note": 5
-        },
-        {
-            "nom": "Pyramide de vitesse (variante 10)",
-            "description": "Séries de sprints croissants puis décroissants.",
-            "materiel": "Plots",
-            "duree": "12 min",
-            "note": 3
-        }
-    ],
-    "Tactique": [
-        {
-            "nom": "Jeu de position 4v2",
-            "description": "Travail de conservation en supériorité numérique.",
-            "materiel": "Plots, ballons",
-            "duree": "15 min",
-            "note": 5
-        },
-        {
-            "nom": "Bloc médian",
-            "description": "Placement défensif en bloc et coulissement latéral.",
-            "materiel": "Plots, chasubles",
-            "duree": "12 min",
-            "note": 4
-        },
-        {
-            "nom": "Pressing à la perte",
-            "description": "Réaction collective à la perte du ballon.",
-            "materiel": "Chasubles, ballons",
-            "duree": "15 min",
-            "note": 4
-        },
-        {
-            "nom": "Montées latérales",
-            "description": "Travail de relance côté et projections latérales.",
-            "materiel": "Plots, cages",
-            "duree": "10 min",
-            "note": 3
-        }
-    ],
-    "Gardiens": [
-        {
-            "nom": "Plongeons gauche/droite",
-            "description": "Plongeons sur frappes dirigées alternées.",
-            "materiel": "Ballons",
-            "duree": "10 min",
-            "note": 4
-        },
-        {
-            "nom": "Réactions courtes",
-            "description": "Travail réflexe sur tirs à très courte distance.",
-            "materiel": "Ballons",
-            "duree": "8 min",
-            "note": 5
-        },
-        {
-            "nom": "Relances ciblées",
-            "description": "Relance précise sur cible mobile au sol ou en l'air.",
-            "materiel": "Plots, ballons",
-            "duree": "12 min",
-            "note": 3
-        },
-        {
-            "nom": "Sorties aériennes",
-            "description": "Prises de balle sur centres avec adversaires passifs.",
-            "materiel": "Cônes, ballons",
-            "duree": "10 min",
-            "note": 4
-        }
-    ]
+  "exercices": [
+    {
+      "nom": "Conduite en slalom",
+      "duree": "10 min",
+      "description": "Dribble entre des plots en gardant le contrôle du ballon.",
+      "materiel": "10 plots",
+      "note": 4,
+      "niveau": "U11"
+    },
+    {
+      "nom": "Jeu en triangle",
+      "duree": "15 min",
+      "description": "Passe et déplacement entre 3 joueurs en triangle.",
+      "materiel": "3 coupelles",
+      "note": 5,
+      "niveau": "U13"
+    },
+    {
+      "nom": "Frappe en course",
+      "duree": "10 min",
+      "description": "Course de 10 mètres puis frappe au but.",
+      "materiel": "Ballons, mini-but",
+      "note": 3,
+      "niveau": "U13"
+    },
+    {
+      "nom": "Jeu de possession",
+      "duree": "20 min",
+      "description": "Conserver la balle dans un espace réduit avec des passes rapides.",
+      "materiel": "Délimiteurs, ballons",
+      "note": 4,
+      "niveau": "U15"
+    },
+    {
+      "nom": "Rondo 5 vs 2",
+      "duree": "12 min",
+      "description": "Travail de conservation avec pressing en infériorité numérique.",
+      "materiel": "10 coupelles, ballons",
+      "note": 5,
+      "niveau": "U17"
+    },
+    {
+      "nom": "Exercice de finition",
+      "duree": "15 min",
+      "description": "Enchaînement de passes et frappes au but sous pression.",
+      "materiel": "Ballons, buts, plots",
+      "note": 4,
+      "niveau": "U13"
+    },
+    {
+      "nom": "Circuit physique intensif",
+      "duree": "20 min",
+      "description": "Enchaînement de courses, sauts et accélérations sur circuit défini.",
+      "materiel": "Plots, échelle, lattes",
+      "note": 4,
+      "niveau": "U15"
+    },
+    {
+      "nom": "Transitions rapides",
+      "duree": "12 min",
+      "description": "Jeu de 3 vs 2 avec bascule rapide attaque/défense.",
+      "materiel": "Ballons, plots",
+      "note": 5,
+      "niveau": "U17"
+    },
+    {
+      "nom": "Relance du gardien",
+      "duree": "10 min",
+      "description": "Travail spécifique sur les relances au pied et à la main.",
+      "materiel": "Ballons, mini-buts",
+      "note": 4,
+      "niveau": "U13"
+    },
+    {
+      "nom": "Plongeons latéraux",
+      "duree": "10 min",
+      "description": "Travail de réflexe et de placement sur des frappes courtes pour gardien.",
+      "materiel": "Ballons, tapis, repères",
+      "note": 5,
+      "niveau": "U15"
+    }
+  ]
 }
