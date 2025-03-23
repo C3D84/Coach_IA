@@ -32,36 +32,35 @@ def generer_programme_ia(categorie, objectif, duree, nb_joueurs, frequence, gard
     progression_txt = f"\nSéance axée sur : {progression}" if progression else ""
 
     prompt = f"""
-    Tu es un entraîneur diplômé UEFA B, responsable de la planification des entraînements pour une équipe de football {categorie}. 
-    Ton rôle est de proposer des séances structurées, précises et adaptées aux objectifs suivants :
+Tu es un entraîneur diplômé UEFA B, responsable de la planification des entraînements pour une équipe de football {categorie}. 
+Ton rôle est de proposer des séances structurées, précises et adaptées aux objectifs suivants :
 
-    - Objectif principal : {objectif}
-    - Nombre de joueurs disponibles : {nb_joueurs}
-    - Durée de la séance : {duree} minutes
-    - Nombre de séances hebdomadaires : {frequence}
-    - Programme spécifique gardiens : {"Oui" if gardiens else "Non"}
+- Objectif principal : {objectif}
+- Nombre de joueurs disponibles : {nb_joueurs}
+- Durée de la séance : {duree} minutes
+- Nombre de séances hebdomadaires : {frequence}
+- Programme spécifique gardiens : {"Oui" if gardiens else "Non"}
 
-    Ta séance doit comporter :
-    1. **Échauffement actif** : avec un objectif précis, durée, consignes claires
-    2. **Corps de séance** : 2 à 3 ateliers avec :
-       - 🎯 Nom de l’atelier
-       - ⏱️ Durée
-       - 🎯 Objectif pédagogique
-       - 📋 Description précise, consignes, variantes
-    3. **Travail spécifique gardien** (si activé) : avec description, matériel, intégration
-    4. **Retour au calme** : étirements, récupération
-    5. **Conseils du coach** : attitude, communication, progression
+Ta séance doit comporter :
+1. **Échauffement actif** : avec un objectif précis, durée, consignes claires
+2. **Corps de séance** : 2 à 3 ateliers avec :
+   - 🎯 Nom de l’atelier
+   - ⏱️ Durée
+   - 🎯 Objectif pédagogique
+   - 📋 Description précise, consignes, variantes
+3. **Travail spécifique gardien** (si activé) : avec description, matériel, intégration
+4. **Retour au calme** : étirements, récupération
+5. **Conseils du coach** : attitude, communication, progression
 
-    Utilise un **vocabulaire clair**, sans jargon, **en français uniquement**.  
-    Formate la réponse comme une **fiche séance prête à imprimer**.  
-    Structure bien les blocs avec titres et sauts de ligne.  
-    N’utilise **aucun anglicisme**.
+Utilise un **vocabulaire clair**, sans jargon, **en français uniquement**.  
+Formate la réponse comme une **fiche séance prête à imprimer**.  
+Structure bien les blocs avec titres et sauts de ligne.  
+N’utilise **aucun anglicisme**.
 
-    Commence directement par l’échauffement.
-    """
+Commence directement par l’échauffement.
+"""
 
-
-try:
+    try:
         hf_url = "https://api-inference.huggingface.co/models/google/flan-t5-base"
         response = requests.post(
             hf_url,
@@ -79,6 +78,7 @@ try:
 
     except Exception as e:
         return f"❌ Erreur lors de l’appel HuggingFace : {str(e)}"
+
 
 
 def generer_planification_seances(categorie, objectif, duree, nb_joueurs, frequence, gardiens, nb_seances=3):
